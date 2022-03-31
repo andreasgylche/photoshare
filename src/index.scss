@@ -10,6 +10,7 @@ body {
   padding: 16px;
 }
 
+// Header.js component
 header {
   display: flex;
   justify-content: space-between;
@@ -38,5 +39,32 @@ header {
       border: none;
       background-color: lighten($red, 10%);
     }
+  }
+}
+
+// PhotoGrid.js component
+.photo-grid {
+  margin-top: 16px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  @include media("<=tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media("<=phone") {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Photo.js component
+.photo {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  img {
+    height: 100%;
   }
 }
