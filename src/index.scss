@@ -7,4 +7,36 @@ body {
   font-family: "Montserrat", sans-serif;
   color: $black;
   background-color: $white;
+  padding: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header-brand {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .header-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    background-color: $red;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+    &:focus,
+    &:focus-visible,
+    &:focus-within,
+    &:hover {
+      border: none;
+      background-color: lighten($red, 10%);
+    }
+  }
 }
