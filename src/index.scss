@@ -19,25 +19,35 @@ header {
     font-size: 24px;
     font-weight: 600;
   }
-  .header-upload {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 7px;
-    background-color: $red;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    svg {
-      width: 16px;
-      height: 16px;
+  .header-form {
+    position: relative;
+    input {
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      opacity: 0;
+      &:focus ~ label {
+        background-color: lighten($red, 20%);
+      }
     }
-    &:focus,
-    &:focus-visible,
-    &:focus-within,
-    &:hover {
-      border: none;
-      background-color: lighten($red, 10%);
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $red;
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      svg {
+        margin-right: 8px;
+      }
+      span {
+        color: $white;
+        font-weight: 600;
+      }
+      &:hover {
+        background-color: lighten($red, 20%);
+      }
     }
   }
 }

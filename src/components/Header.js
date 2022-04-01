@@ -5,9 +5,13 @@ function Header() {
   return (
     <header>
       <div className="header-brand">photoshare</div>
-      <button className="header-upload">
-        <UploadIcon />
-      </button>
+      <form className="header-form">
+        <input type="file" id="upload" />
+        <label for="upload" tabindex="0">
+          <UploadIcon />
+          <span>Upload</span>
+        </label>
+      </form>
     </header>
   );
 }
