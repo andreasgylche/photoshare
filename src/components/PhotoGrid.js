@@ -14,7 +14,6 @@ function PhotoGrid() {
         ...doc.data(),
       }));
       setImages(images);
-      console.log(images);
     });
   }, []);
 
