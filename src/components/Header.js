@@ -11,7 +11,7 @@ function Header() {
 
   const handleChange = (e) => {
     let selected = e.target.files[0];
-    const storageRef = ref(storage, `/images/${Date.now()}${selected.name}`);
+    const storageRef = ref(storage, `/images/${selected.name}`);
 
     if (selected && types.includes(selected.type)) {
       setFile(selected);

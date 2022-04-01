@@ -27,14 +27,14 @@ header {
       height: 0px;
       opacity: 0;
       &:focus ~ label {
-        background-color: lighten($red, 20%);
+        background-color: lighten($purple, 20%);
       }
     }
     label {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $red;
+      background-color: $purple;
       border-radius: 8px;
       padding: 8px;
       cursor: pointer;
@@ -46,7 +46,7 @@ header {
         font-weight: 600;
       }
       &:hover {
-        background-color: lighten($red, 20%);
+        background-color: lighten($purple, 20%);
       }
     }
   }
@@ -70,14 +70,41 @@ header {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    img {
-      min-width: 100%;
-      max-width: 120%;
-      min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 16px;
+      right: 16px;
+      padding: 8px;
+      z-index: 10;
+      background-color: $red;
+      border: none;
+      border-radius: 8px;
+      height: 32px;
+      width: 32px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      @media (hover: none) {
+        opacity: 1;
+      }
+    }
+    img {
+      max-width: 150%;
+      height: auto;
+      transition: transform 0.2s ease-in-out;
+    }
+    &:hover {
+      button {
+        opacity: 1;
+      }
+      img {
+        transform: scale(1.1);
+      }
     }
   }
 }
