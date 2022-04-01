@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { motion } from "framer-motion";
 
 function PhotoGrid() {
   const [images, setImages] = useState([]);
@@ -23,9 +24,20 @@ function PhotoGrid() {
         <p>No images in the database 😳</p>
       ) : (
         images.map((image) => (
-          <div className="photo" key={image.id}>
-            <img src={image.imageUrl} alt={image.imageName} />
-          </div>
+          <motion.div
+            className="photo"
+            key={image.id}
+            layout
+            whileHover={{ opacity: 0.8 }}
+          >
+            <motion.img
+              src={image.imageUrl}
+              alt={image.imageName}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            />
+          </motion.div>
         ))
       )}
     </div>
