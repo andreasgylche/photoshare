@@ -5,7 +5,6 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../firebaseConfig";
 
 function Header() {
-  const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
   const types = ["image/png", "image/jpeg"];
 
@@ -14,7 +13,6 @@ function Header() {
     const storageRef = ref(storage, `/images/${selected.name}`);
 
     if (selected && types.includes(selected.type)) {
-      setFile(selected);
       const uploadImage = uploadBytesResumable(storageRef, selected);
 
       uploadImage.on(
@@ -29,7 +27,6 @@ function Header() {
           console.log(err);
         },
         () => {
-          setFile(null);
           getDownloadURL(uploadImage.snapshot.ref).then((url) => {
             const collecktionRef = collection(db, "images");
             addDoc(collecktionRef, {
